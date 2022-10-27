@@ -51,10 +51,12 @@ public class RecursiveMethods {
 	 */
 	public static int[] toReversed(int[] array) {
 		return reverseArray(array, 0);
-		
 	}
 	
 	public static int[] reverseArray(int[] array, int index ) {
+		if(array.length == 0) {
+			return array;
+		}
 		if(array.length % 2 == 0) {
 			if (index == (array.length-1/2)){
 				int temp = array[(array.length-1)-index];
@@ -70,7 +72,7 @@ public class RecursiveMethods {
 			int temp = array[(array.length-1)-index];
 			array[array.length-1-index] = array[index];
 			array[index] = temp;
-			return reverseArray(array, index++);
+			return reverseArray(array, index + 1);
 		}
 	}
 	/**
