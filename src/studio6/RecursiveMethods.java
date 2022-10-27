@@ -50,18 +50,27 @@ public class RecursiveMethods {
 	 * @return an array with the same data as the input but it reverse order
 	 */
 	public static int[] toReversed(int[] array) {
-		return index(array, 0);
+		return reverseArray(array, 0);
 		
 	}
-	public static int[] index ( int [] arr, int N ) {
-		if (N ==(arr.length-1)/2) {
-			return(arr);
+	
+	public static int[] reverseArray(int[] array, int index ) {
+		if(array.length % 2 == 0) {
+			if (index == (array.length-1/2)){
+				int temp = array[(array.length-1)-index];
+				array[array.length-1-index] = array[index];
+				array[index] = temp;
+				return (array);
+			}
 		}
-		else {
-			int temp = arr[arr.length-1-N];
-			arr[arr.length-1-N] = arr[N];
-			arr[N] = temp;
-			return index(arr, N++);
+		if (index == (array.length)/2) {
+				return (array);
+		}
+		else{
+			int temp = array[(array.length-1)-index];
+			array[array.length-1-index] = array[index];
+			array[index] = temp;
+			return reverseArray(array, index++);
 		}
 	}
 	/**
