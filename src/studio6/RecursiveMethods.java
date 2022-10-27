@@ -50,12 +50,20 @@ public class RecursiveMethods {
 	 * @return an array with the same data as the input but it reverse order
 	 */
 	public static int[] toReversed(int[] array) {
-		
-			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
+		return index(array, 0);
 		
 	}
-
+	public static int[] index ( int [] arr, int N ) {
+		if (N ==(arr.length-1)/2) {
+			return(arr);
+		}
+		else {
+			int temp = arr[arr.length-1-N];
+			arr[arr.length-1-N] = arr[N];
+			arr[N] = temp;
+			return index(arr, N++);
+		}
+	}
 	/**
 	 * @param xCenter                       x-coordinate of the center of the circle
 	 *                                      at the current depth
